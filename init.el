@@ -52,39 +52,13 @@
 
 ;;; from melpa
 ;;;
-(use-package olivetti
-  :ensure t
-  :config
-  (add-hook 'text-mode-hook #'olivetti-mode)
-  )
 
-(use-package org-journal
+(use-package undo-tree
   :ensure t
-  :defer t
   :config
-  (setq org-journal-dir "~/Library/Mobile Documents/com~apple~CloudDocs/notes/journal"
-        org-journal-date-format "%A, %d %B %Y"
-        org-journal-file-format "%Y-%m-%d.org")
+  (setq undo-tree-auto-save-history nil)
   :init
-  (global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
-  (global-set-key (kbd "C-c C-f") 'org-journal-next-entry)
-  (global-set-key (kbd "C-c C-b") 'org-journal-previous-entry)
-)
-
-;; (use-package undo-tree
-;;   :ensure t
-;;   :config
-;;   (setq undo-tree-auto-save-history nil)
-;;   :init
-;;   (global-undo-tree-mode)
-;;   )
-
-(use-package git-auto-commit-mode
-  :ensure t
-  :config
-  (setq gac-automatically-push-p t)
-  (setq gac-automatically-add-new-files-p t)
-  (setq gac-silent-message-p t)
+  (global-undo-tree-mode)
   )
 
 (use-package git-timemachine
@@ -166,25 +140,6 @@
   (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
   (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
   )
-
-;; (use-package org-roam
-;;   :ensure t
-;;   :init
-;;   (setq org-roam-directory (file-truename "~/Library/Mobile Documents/com~apple~CloudDocs/notes/"))
-;;   ;; (setq org-roam-dailies-directory "daily/")
-;;   ;; (setq org-roam-dailies-capture-templates
-;;   ;;       '(("d" "default" entry
-;;   ;;          "* %?"
-;;   ;;          :target (file+head "%<%Y-%m-%d>.org"
-;;   ;;                             "#+title: %<%Y-%m-%d>\n"))))
-;;   :config
-;;   (org-roam-db-autosync-mode)
-;;   (setq org-roam-mode-sections
-;;       (list #'org-roam-backlinks-section
-;;             #'org-roam-reflinks-section
-;;             #'org-roam-unlinked-references-section
-;;             ))
-;;   )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
